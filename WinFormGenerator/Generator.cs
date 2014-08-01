@@ -25,13 +25,13 @@ namespace WinFormGenerator
 
         public static ClassForm GenerateWinForm(Type type, object obj = null)
         {
-            var form = new ClassForm(type,obj);
-            form.Height = 0; 
-
             if (obj == null)
             {
                 obj = Activator.CreateInstance(type);
             }
+
+            var form = new ClassForm(type,obj);
+            form.Height = 0; 
 
             LoadAttributs(type, form);
 

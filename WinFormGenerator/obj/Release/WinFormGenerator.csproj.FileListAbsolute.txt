@@ -5,3 +5,5 @@ c:\users\mille\documents\visual studio 2013\Projects\WinFormGenerator\WinFormGen
 c:\users\mille\documents\visual studio 2013\Projects\WinFormGenerator\WinFormGenerator\obj\Release\WinFormGenerator.csproj.GenerateResource.Cache
 c:\users\mille\documents\visual studio 2013\Projects\WinFormGenerator\WinFormGenerator\obj\Release\WinFormGenerator.dll
 c:\users\mille\documents\visual studio 2013\Projects\WinFormGenerator\WinFormGenerator\obj\Release\WinFormGenerator.pdb
+C:\Users\Mille\documents\visual studio 2013\Projects\WinFormGenerator\WinFormGenerator\bin\Release\Microsoft.Xna.Framework.dll
+C:\Users\Mille\documents\visual studio 2013\Projects\WinFormGenerator\WinFormGenerator\bin\Release\Microsoft.Xna.Framework.xml

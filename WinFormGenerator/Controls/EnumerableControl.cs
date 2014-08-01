@@ -32,7 +32,7 @@ namespace WinFormGenerator.Controls
                 listValueType = propertyInfo.PropertyType.GetElementType();
             }
 
-            var panel = new Panel {Width = Config.DefaultControlWidth, Height = 130};
+            var panel = new Panel {Width = Config.DefaultControlWidth, Height = 130, Name = "list"};
             var listbox = new ListBox {Height = 100, Width = Config.DefaultControlWidth};
 
             if (BaseObject != null)

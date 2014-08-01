@@ -6,6 +6,7 @@
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
+using Microsoft.Xna.Framework;
 
 namespace WinFormGenerator
 {
@@ -30,11 +31,20 @@ namespace WinFormGenerator
                 Object = Activator.CreateInstance(ObjectType);
             }
 
+            if (ObjectType == typeof (Vector2))
+            {
+                var panel = Controls[2]; 
+                Object = new Vector2((float)((NumericUpDown)panel.Controls[2]).Value,
+                            (float)((NumericUpDown)panel.Controls[3]).Value);
+                return; 
+            }
+
             if (ObjectType.IsValueType || ObjectType == typeof(string))
             {
                 Object = Controls[2].Text;
+                return;
             }
-
+           
             var properties = ObjectType.GetProperties();
             int index = 0;
             for (int n = 0; n + 3 < Controls.Count; n += 2)
@@ -54,11 +64,20 @@ namespace WinFormGenerator
                 {
                     //Do nothing
                 }
+                else if (Controls[n + 3] is Panel)
+                {
+                    var panel = (Panel) Controls[n + 3];
+                    if (panel.Name == "vector2")
+                    {
+                        var vector = new Vector2((float) ((NumericUpDown) panel.Controls[2]).Value,
+                            (float) ((NumericUpDown) panel.Controls[3]).Value);
+                        properties[ListOfIndex[index]].SetValue(Object, vector);
+                    }
+                }
                 else
                 {
                     if (!string.IsNullOrEmpty(Controls[n + 3].Text))
                         properties[ListOfIndex[index]].SetValue(Object, Convert.ChangeType(Controls[n + 3].Text, properties[ListOfIndex[index]].PropertyType));
-
                 }
                 index++;
             }

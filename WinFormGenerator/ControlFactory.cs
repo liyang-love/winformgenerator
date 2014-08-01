@@ -4,10 +4,12 @@
 //
 //------------------------------------------------------
 using System;
+using System.CodeDom;
 using System.Collections;
 using System.Linq;
 using System.Reflection;
 using System.Windows.Forms;
+using Microsoft.Xna.Framework;
 using WinFormGenerator.Controls;
 
 namespace WinFormGenerator
@@ -52,6 +54,10 @@ namespace WinFormGenerator
             if (type.IsClass)
             {
                 return new ClassBaseControl(obj, config);
+            }
+            if (type == typeof (Vector2))
+            {
+                return new Vector2BaseControl(obj,config);
             }
 
             throw new Exception("No baseControl for that type.");
